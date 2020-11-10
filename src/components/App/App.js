@@ -34,7 +34,7 @@ export class App extends Component {
           <UrlForm loadContent={this.loadContent}/>
         </header>
 
-        <UrlContainer urls={this.state.urls}/>
+        <UrlContainer loadContent={this.loadContent} urls={this.state.urls}/>
       </main>
     );
   }
