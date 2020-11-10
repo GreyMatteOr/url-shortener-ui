@@ -14,9 +14,12 @@ export class App extends Component {
   }
 
   componentDidMount() {
+    this.loadContent();
+  }
+
+  loadContent = () => {
     api.getUrls()
     .then( ({ urls }) => {
-      console.log(urls)
       if (urls === 'error') this.setState( {error: true})
       this.setState( {urls} )
     })
@@ -28,7 +31,7 @@ export class App extends Component {
       <main className="App">
         <header>
           <h1>URL Shortener</h1>
-          <UrlForm />
+          <UrlForm loadContent={this.loadContent}/>
         </header>
 
         <UrlContainer urls={this.state.urls}/>

@@ -21,7 +21,7 @@ class UrlForm extends Component {
     api.postUrl( urlToShorten, title )
     .then( data => {
       if (data === 'error') console.log('oh no!')
-      else console.log(data)
+      this.props.loadContent();
       this.clearInputs();
     })
   }
