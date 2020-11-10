@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { getUrls } from '../../apiCalls';
+import api from '../../apiCalls';
 import UrlContainer from '../UrlContainer/UrlContainer';
 import UrlForm from '../UrlForm/UrlForm';
 
@@ -8,11 +8,19 @@ export class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      error: false,
       urls: []
     }
   }
 
   componentDidMount() {
+    api.getUrls()
+    .then( ({ urls }) => {
+      console.log(urls)
+      if (urls === 'error') this.setState( {error: true})
+      this.setState( {urls} )
+    })
+    .catch( () => this.setState( {error: true} ) )
   }
 
   render() {
