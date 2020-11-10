@@ -10,10 +10,12 @@ const api = {
   },
 
   postUrl: (long_url, title) => {
+    let body = {long_url, title}
+    body = JSON.stringify(body)
     return fetch(api.url, {
       body: JSON.stringify( {long_url, title}),
       method: 'POST',
-      header: {
+      headers: {
         "Content-Type": "application/json"
       }
     })
