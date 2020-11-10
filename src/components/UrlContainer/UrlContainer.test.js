@@ -3,7 +3,7 @@ import { render, screen, waitFor } from '@testing-library/react';
 import React from 'react';
 import '@testing-library/jest-dom';
 import userEvent from '@testing-library/user-event';
-import UrlContainer from './/UrlContainer.js';
+import UrlContainer from './UrlContainer.js';
 
 describe ('UrlContainer', () => {
 
